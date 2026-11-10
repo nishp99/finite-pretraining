@@ -1,0 +1,6 @@
+{
+  "fit_file": "../runs/prediction/fit.json",
+  "pretraining_time": 0.5,
+  "dynamics": {"D": 200, "epochs": 20, "schedule": "switch", "switch": 10, "spherical": true, "policy": "adaptive"},
+  "ensemble": {"encoders": 2, "pairs": 2, "repetitions": 2, "steps": 500, "seed": 17}
+}
