@@ -63,12 +63,12 @@ def _result(states, rates, delta, status, checkpoint, backend, start):
     if not np.isfinite(states).all() or np.any(v <= 0):
         raise ArithmeticError("Invalid trajectory variance or state")
     corr = states[..., 0] / np.sqrt(v)
-    if np.any(abs(corr) > 1 + 1e-12):
+    if np.any(abs(corr) > 1):
         raise ArithmeticError("Unphysical teacher correlation")
     return Trajectory(
         np.arange(start, start + len(states)),
         states,
-        0.5 + np.arcsin(np.clip(corr, -1, 1)) / np.pi,
+        0.5 + np.arcsin(corr) / np.pi,
         np.asarray(rates),
         status,
         checkpoint,

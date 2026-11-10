@@ -107,7 +107,7 @@ def conditioned_modes(
         j = jnp.sum(u * t, axis=-1) / D
         q = jnp.sum(u * u + y, axis=-1) / D
         var = jnp.sum(ev * (u * u + y), axis=-1) / D
-        p = 0.5 + jnp.arcsin(jnp.clip(j / jnp.sqrt(var), -1.0, 1.0)) / jnp.pi
+        p = 0.5 + jnp.arcsin(j / jnp.sqrt(var)) / jnp.pi
         fac = rate * jnp.where(rl, p ** (T - 1), 1.0) / jnp.sqrt(2 * jnp.pi)
         a = jnp.where(rl, 1.0, -1.0) * fac / jnp.sqrt(var)
         b = fac * jnp.where(rl, 1.0, 1 - 2 * epsilon)

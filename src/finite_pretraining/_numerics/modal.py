@@ -17,8 +17,7 @@ def factors(state, ev, wdiag, mass, parameters, rl, eta, sphere, xp):
     q = xp.sum(mass * (wdiag * f * f + y))
     var = xp.sum(mass * ev * (wdiag * f * f + y))
     corr = j0 / xp.sqrt(var * S)
-    # Roundoff-only arcsin protection; caller separately rejects physical exits.
-    p = 0.5 + xp.arcsin(xp.clip(corr, -1.0, 1.0)) / xp.pi
+    p = 0.5 + xp.arcsin(corr) / xp.pi
     fac = eta * xp.where(rl, p ** (T - 1), 1.0) / xp.sqrt(2 * xp.pi)
     a = xp.where(rl, 1.0, -1.0) * fac / xp.sqrt(var)
     b = fac * xp.where(rl, 1.0, 1 - 2 * eps) / xp.sqrt(S)

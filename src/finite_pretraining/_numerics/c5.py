@@ -1,4 +1,4 @@
-"""Experimental positive-time C5. Legacy fitting and defaults are unchanged.
+"""Positive-time C5 fitting and deterministic checkpoint selection.
 
 Node calibration uses H moments only. Physical approximate predictions are
 returned with explicit flags; they are not promoted to converged fits.
