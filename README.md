@@ -38,6 +38,8 @@ The comparison config explicitly points to the fit you just computed, relative t
 
 `comparison.png` shows the RMT surrogate, the GPU ensemble mean, and full-annealed and pair-conditioned CPU references using the same encoders. All replay the same per-update rate schedule. `pretraining-check.json` reports encoder and trace errors; the NPZ files retain separate epoch, pair and repetition axes. This small example demonstrates the workflow; it does not estimate dataset-level uncertainty reliably.
 
+![Matched learning curves at width 0.2 and pretraining time 0.5](docs/comparison.png)
+
 ## Python entry points
 
 | Module | Start here |
